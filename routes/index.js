@@ -12,7 +12,7 @@ MongoClient.connect("mongodb://localhost:27017", (err, client) => {
 /* GET home page. */
 router.get("/", function(req, res, next) {
   db.collection("aantalOnline")
-    .find()
+    .find({}, {aantal: 1})
     .toArray((err, data) => {
       if (err) throw err;
       res.json(data);
